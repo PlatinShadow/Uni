@@ -1,20 +1,3 @@
-Hello guys welcome to my very epic java tutorial. In this video we will learn the entirety of java.
-## Table of Contents
-- [[#Keywords|Keywords]]
-	- [[#Keywords#Visibility|Visibility]]
-	- [[#Keywords#Other useful things|Other useful things]]
-- [[#UML-fuckery|UML-fuckery]]
-- [[#Patterns|Patterns]]
-	- [[#Patterns#Immutable class|Immutable class]]
-	- [[#Patterns#Decorator-Pattern|Decorator-Pattern]]
-		- [[#Decorator-Pattern#Example|Example]]
-	- [[#Patterns#Composite-Pattern|Composite-Pattern]]
-	- [[#Patterns#Singleton-Pattern|Singleton-Pattern]]
-	- [[#Patterns#FactoryMethod-Pattern|FactoryMethod-Pattern]]
-	- [[#Patterns#Observer-Pattern|Observer-Pattern]]
-- [[#Frameworks|Frameworks]]
-	- [[#Frameworks#Collections|Collections]]
-
 ## Keywords
 ### Visibility
 - **protected**: declarations are visible within the package or all subclasses
@@ -28,8 +11,8 @@ Hello guys welcome to my very epic java tutorial. In this video we will learn th
 - a **extends** b: adds everything from class b to a 
 - a **implements** b: a implements methods of interface b 
 
-## UML-fuckery
-![[Pasted image 20230802182933.png]]
+## UML-Stuff
+![[uml.png]]
 
 ## Patterns
 ### Immutable class
@@ -161,4 +144,4 @@ public class EncryptionDecorator extends DataSourceDecorator {
 
 ## Frameworks
 ### Collections
-![[Pasted image 20230802181744.png]]
+![[java.collections.diagram.png]]
