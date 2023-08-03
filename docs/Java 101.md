@@ -4,18 +4,21 @@
 - **default**: declarations are visible only within the package (package private)
 - **private**: declarations are visible within the class only
 - **public**: declarations are visible everywhere
-### Other useful things
+### Other useful keywords
 - **super(args...)**: calls constructor of base class
 - **abstract**: Class contains abstract and implemented methods, the class cannot be instantiated, it can only be subclassed
 - **interface**: only abstract methods
 - a **extends** b: adds everything from class b to a 
 - a **implements** b: a implements methods of interface b 
+- **volatile**: Variable is never cached, different threads see the write immediately 
 
-## UML-Stuff
+## UML
+![[uml-cheat-sheet.png]]
+### UML Arrows
 ![[uml.png]]
-### Association
+#### Association
 Associations are just relationships between classes.
-### Aggregation vs Composition
+#### Aggregation vs Composition
 Aggregation and Composition are used when Classes are composed from other classes. The difference between them is in their lifetime. 
 **Aggregation**: Destroying the class does not destroy its parts
 **Composition**: Destroying the class also destroys the parts 
@@ -230,10 +233,68 @@ public static void main(String[] args) {
 ```
 
 ### Singleton-Pattern
+A Singleton is used when only a single instance of the class is needed globally. Achieve this by making the constructor private and writing a public getter which lazily initializes the instance.
+#### Example
+This is a very simple implementation. It works but is not thread safe! To achieve thread safety the get method could be marked with **synchronized**, or **Double Checked Locking** could be used for more performance.
+```java
+class Singleton {
+	private static Singleton instance;
 
+	private Singleton() {}
+
+	public static Singleton get() {
+		if(instance == null)
+			instance = new Singleton();
+		return instance;
+	}
+}
+```
 
 ### FactoryMethod-Pattern
+The FactoryMethod-Pattern is used to create objects without specifying the exact class of object that will be created. This is useful when you need to decouple the creation of an object from its implementation.
+#### Example
+**Basic Interface**
+```java 
+public interface Shader {
+	public void use();
+	public void compile();
+}
+```
 
+**Implementations**
+```java
+public class OpenGLShader implements Shader {
+	...
+}
+```
+
+```java
+public class DirectX11Shader implements Shader {
+	...
+}
+```
+
+**Factory**
+Now to create a Shader based on the current graphics API we need a Factory:
+```java
+public enum API {
+	OPENGL,
+	DIRECTX11
+}
+
+public class ShaderFactory {
+	public Shader buildShader(API api, string filePath) {
+		string shaderSource = readFile(filePath);	
+
+		switch(api) {
+			case API::OPENGL
+				return new OpenGLShader(shaderSource);
+			case API::DIRECTX11
+				return new DirectX11Shader(shaderSource);
+		}
+	}
+}
+```
 
 ### Observer-Pattern
 
