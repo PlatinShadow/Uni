@@ -24,6 +24,12 @@ Aggregation and Composition are used when Classes are composed from other classe
 **Composition**: Destroying the class also destroys the parts 
 
 
+## IO
+### Buffered Reader
+```java
+new BufferedReader(new FileReader("Lad.json"))
+```
+
 ## Patterns
 ### Immutable class
 1. Declare class as **final**
@@ -297,8 +303,7 @@ public class ShaderFactory {
 ```
 
 ### Observer-Pattern
-
-
+[Observer](https://refactoring.guru/design-patterns/observer) is a behavioral design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they’re observing. 
 ## Frameworks
 ### Collections
 ![[java.collections.diagram.png]]
